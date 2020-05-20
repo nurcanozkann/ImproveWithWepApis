@@ -1,0 +1,38 @@
+﻿@using ImproveWithWepApis.Models
+@model TotalValueModel
+@{
+    ViewBag.Title = "Toplam Değerlers";
+}
+
+<div class="container-fluid">
+    <h1 class="mt-4"></h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">Toplam Değerler</li>
+    </ol>
+    <div class="card mb-4">
+        <div class="card-header"><i class="fas fa-chart-pie mr-1"></i>Total Value</div>
+        <div class="card-body"><canvas id="myPieChart" width="200%" height="70"></canvas></div>
+        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="~/res/dist/js/scripts.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+@*<script src="~/res/dist/assets/demo/chart-pie-demo.js"></script>*@
+
+<script>
+    var ctx = document.getElementById("myPieChart");
+    var myPieChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ["Blue", "Red", "Yellow"],
+            datasets: [{
+                data: [@Model.TotalCases, @Model.TotalDeaths, @Model.TotalRecovered],
+                backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745'],
+            }],
+        },
+    });
+
+</script>

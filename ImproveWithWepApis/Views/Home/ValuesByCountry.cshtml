@@ -1,0 +1,55 @@
+﻿@using ImproveWithWebApi.Models
+@model List<ValuesByCountryModel>
+@{
+    ViewBag.Title = "ValuesByCountry";
+}
+<div class="container-fluid">
+    <h1 class="mt-4"></h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">Ülkedeki Değerler</li>
+    </ol>
+    <div class="card mb-4">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Country</th>
+                            <th>TotalCases</th>
+                            <th>NewCases</th>
+                            <th>TotalDeaths</th>
+                            <th>NewDeaths</th>
+                            <th>TotalRecovered</th>
+                            <th>ActiveCases</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Country</th>
+                            <th>TotalCases</th>
+                            <th>NewCases</th>
+                            <th>TotalDeaths</th>
+                            <th>NewDeaths</th>
+                            <th>TotalRecovered</th>
+                            <th>ActiveCases</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Country</td>
+                                <td>@item.TotalCases</td>
+                                <td>@item.NewCases</td>
+                                <td>@item.TotalDeaths</td>
+                                <td>@item.NewDeaths</td>
+                                <td>@item.TotalRecovered</td>
+                                <td>@item.ActiveCases</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

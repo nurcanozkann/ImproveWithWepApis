@@ -1,0 +1,34 @@
+﻿@using ImproveWithWepApis.Models
+@model List<NewsInTurkeyModel>
+
+@{
+                /**/
+
+                ViewBag.Title = "NewsInTurkey";
+}
+
+<link href="~/res/dist/css/style1.css" rel="stylesheet" />
+<div class="container-fluid">
+    <h1 class="mt-4"></h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">Türkiyeden Haberler</li>
+    </ol>
+
+    <div class="card-deck">
+        <div class="card">
+            @foreach (var item in Model)
+            {
+
+                <img src="@item.Image" style="width:%80;" class="card-img-top img-rounded center" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">@item.Name</h5>
+                    <p class="card-text">@item.Description  <a href="@item.Url">Detay için..</a></p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">@item.Date.ToString() - @item.Source</small>
+                </div>
+
+            }
+        </div>
+    </div>
+</div>

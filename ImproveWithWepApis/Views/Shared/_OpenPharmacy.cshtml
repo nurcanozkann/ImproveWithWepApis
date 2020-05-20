@@ -1,0 +1,17 @@
+﻿@using ImproveWithWepApis.Models
+@model  IEnumerable<OpenPharmacyModel>
+
+@if (Model != null)
+{
+    <ul class="list-group list-group-flush">
+        @foreach (var m in Model)
+        {
+
+            <p>dasdasdas</p>
+            <li class="list-group-item"> @m.Name</li>
+            <li class="list-group-item"> @m.Phone</li>
+            <li class="list-group-item"> @m.Address</li>
+            <li class="list-group-item"> @m.Dist</li>
+        }
+    </ul>
+}
